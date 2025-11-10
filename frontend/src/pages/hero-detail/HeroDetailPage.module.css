@@ -1,0 +1,104 @@
+.page {
+  display: grid;
+  gap: 2rem;
+}
+
+.heroHeader {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .heroHeader {
+    grid-template-columns: 220px 1fr;
+    align-items: center;
+  }
+}
+
+.portrait {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(12, 16, 29, 0.85);
+}
+
+.portrait img {
+  width: 100%;
+  display: block;
+}
+
+.roleTags {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.heroHeader h1 {
+  margin-top: 0.4rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.3rem;
+}
+
+.lanes {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.lore,
+.traits {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(14, 18, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.lore h2 {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.traits {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .traits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.traits h3 {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.traits ul {
+  display: grid;
+  gap: 0.4rem;
+  padding-left: 1.2rem;
+}
+
+.traits li::marker {
+  color: var(--accent-primary);
+}
+
+.builds {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.noBuilds {
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: rgba(14, 18, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
