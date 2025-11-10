@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      target: runtime
+    image: mlbb-supporter-backend:latest
+    env_file:
+      - backend/.env.example
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-postgresql://mlbb:mlbb@db:5432/mlbb}
+      - CACHE_URL=${CACHE_URL:-redis://cache:6379/0}
+      - FRONTEND_ORIGIN=${FRONTEND_ORIGIN:-http://localhost:5173}
+    depends_on:
+      - cache
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - frontend-build:/app/backend/static
+
+  frontend:
+    image: node:18-bullseye
+    working_dir: /app/frontend
+    command: ["npm", "run", "dev", "--", "--host"]
+    env_file:
+      - frontend/.env.example
+    environment:
+      - VITE_API_URL=${VITE_API_URL:-http://localhost:8000}
+    volumes:
+      - ./frontend:/app/frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+  cache:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "no"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - cache-data:/data
+
+volumes:
+  cache-data:
+  frontend-build:
