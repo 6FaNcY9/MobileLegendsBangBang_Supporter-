@@ -1,0 +1,27 @@
+.page {
+  display: grid;
+  gap: 2rem;
+}
+
+.header h1 {
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.header p {
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.count {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}

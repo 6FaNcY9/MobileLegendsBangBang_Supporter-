@@ -1,0 +1,88 @@
+.hero {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero header {
+  display: grid;
+  gap: 1rem;
+  max-width: 48rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 6vw, 3.25rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryAction {
+  background: var(--accent-primary);
+  color: var(--background);
+  box-shadow: 0 16px 30px rgba(93, 75, 255, 0.35);
+}
+
+.secondaryAction {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  transform: translateY(-2px);
+}
+
+.features {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .features {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.features article {
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: rgba(16, 20, 35, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.features h2 {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.features p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
